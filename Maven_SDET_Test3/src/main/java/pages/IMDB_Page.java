@@ -61,16 +61,18 @@ public class IMDB_Page {
 		}
 		
 		
-		public void getReleseDate() {
+		public String getReleseDate() {
 			
-			String Date1=releseDate.getText();
-			System.out.println(Date1);
+			return releseDate.getText();
+			
 			
 		}
 		
-		public void getCountry() {
-			String countryName1=country.getText();
-			System.out.println(countryName1);
+		public String getCountry() {
+			
+			
+			return country.getText();
+			//return country1;
 		}
 		
 	

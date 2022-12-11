@@ -56,16 +56,18 @@ public class SearchPage {
 			movieName.click();
 		}
 		
-		public void getReleseDate() {
+		public String getReleseDate() {
 			
-			String Date=releseDate.getText();
-			System.out.println(Date);
+			return releseDate.getText();
+			//System.out.println(Date);
 			
 		}
 		
-		public void getCountry() {
-			String countryName=country.getText();
-			System.out.println(countryName);
+		public String getCountry() {
+			return country.getText();
+			
+			//String countryName=country.getText();
+			//System.out.println(countryName);
 		}
 		
 		

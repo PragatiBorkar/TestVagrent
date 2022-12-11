@@ -8,6 +8,8 @@
         <methods>
           <include name="launchBrowser"/>
           <include name="verifyReleseDateAndCountryNameOnWiki"/>
+          <include name="closeBrowser"/>
+          <include name="clearObject"/>
         </methods>
       </class> <!-- testNG.VerifyDateAndCountry -->
     </classes>

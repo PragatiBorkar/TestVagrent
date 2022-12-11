@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.poi.EncryptedDocumentException;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -51,15 +52,12 @@ public class VerifyDateAndCountry extends Base{
 		
 		String data=Utility.getDataFromExcelSheet("Sheet1", 1, 1);
 		searchPage.sendinputOnSearchField(data);
-		
-		
-		
 		searchPage.clickOnSearchButton();
 		searchPage.clickOnMovieName();
-		searchPage.getReleseDate();
-		searchPage.getCountry();
-		
-		
+		String releseDate=searchPage.getReleseDate();
+		System.out.println("Relese Date Of Movie On IMDB="+releseDate);
+		String country=searchPage.getCountry();
+		System.out.println("Country Name Of Movie On IMDB="+country);
 		
 		
 		
@@ -67,20 +65,38 @@ public class VerifyDateAndCountry extends Base{
 		
 		driver.get("https://www.imdb.com/");
 		iMDB_Page=new IMDB_Page(driver);
-		
-		
+
 		String data1=Utility.getDataFromExcelSheet("Sheet1", 1, 1);
 		iMDB_Page.sendinputOnSearchField(data1);
 		
-		
-		
+
 		iMDB_Page.clickOnsearchButton();
 		iMDB_Page.clickOnMovieName();
 		iMDB_Page.scrollDownToDetails();
-		iMDB_Page.getReleseDate();
-		iMDB_Page.getCountry();
+		String releseDate1=iMDB_Page.getReleseDate();
+		System.out.println("Relese Date Of Movie On Wiki="+releseDate1);
+		String country1 =iMDB_Page.getCountry();
+		System.out.println("Country Name Of Movie On Wiki="+country1);
 		
-			
+		if(releseDate.equals(releseDate1))
+		{
+			System.out.println("Relese date Are Same So Test case is =PASS");
+		}
+		else 
+		{
+			System.out.println("Relese date Are not Same So Test case is = FAIL");
+		}
+		
+		if(country.equals(country1))
+		{
+			System.out.println("Country Name Are Same So Test case is =PASS");
+		}
+		else 
+		{
+			System.out.println("Country Name Are not Same So Test case is =FAIL");
+		}
+		
+		
 		
 	}
 	
@@ -89,6 +105,7 @@ public class VerifyDateAndCountry extends Base{
 	    @AfterClass
 	    public void clearObject (){
 		searchPage=null;
+		iMDB_Page=null;
 	
       }
 
